@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Page not found · Brandon Sweeting</title>
+  <meta name="description" content="Page not found on brandonsweeting.com.">
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/index.html">Brandon Sweeting</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <a href="/index.html">Home</a>
+        <a href="/research.html">Research</a>
+        <a href="/publications.html">Publications</a>
+        <a href="/teaching.html">Teaching</a>
+        <a href="/outreach.html">Outreach</a>
+        <a class="cv-btn" href="/uploads/curriculum_vitae.pdf" target="_blank" rel="noopener">CV <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page">
+      <div class="wrap">
+        <article class="panel">
+          <header class="panel-head">
+            <span class="panel-label">Not found</span>
+            <h1>This page has moved</h1>
+          </header>
+          <section class="block">
+            <p id="msg">The page you were looking for isn&rsquo;t here. The site was recently redesigned, so some old addresses have changed.</p>
+            <p><a class="btn primary" href="/index.html">Go to the home page</a></p>
+          </section>
+        </article>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var p = location.pathname.toLowerCase();
+        var map = [
+          [/^\/publication(s)?(\/|$)/, '/publications'],
+          [/^\/(project|teaching)(\/|$)/, '/teaching'],
+          [/^\/(event|talk|research)(\/|$)/, '/research'],
+          [/^\/outreach(\/|$)/, '/outreach'],
+          [/^\/highlights/, '/']
+        ];
+        for (var i = 0; i < map.length; i++) {
+          if (map[i][0].test(p)) {
+            document.getElementById('msg').textContent = 'Redirecting to the new page\u2026';
+            location.replace(map[i][1]);
+            return;
+          }
+        }
+      })();
+    </script>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>&copy; 2026 Brandon Sweeting</span>
+      <nav aria-label="Footer">
+        <a href="mailto:sweeting@wustl.edu">Email</a><span class="dot">&middot;</span><a href="/uploads/curriculum_vitae.pdf" target="_blank" rel="noopener">CV</a><span class="dot">&middot;</span><a href="https://math.wustl.edu/" target="_blank" rel="noopener">WashU Mathematics</a>
+      </nav>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var b = document.querySelector('.menu-toggle'), n = document.getElementById('site-nav');
+      if (!b || !n) return;
+      b.addEventListener('click', function () {
+        var open = n.classList.toggle('open');
+        b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
+  </script>
+</body>
+</html>
